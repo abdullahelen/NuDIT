@@ -18,12 +18,12 @@ Follow these steps to run the project:
 
 1. **Prepare the Tabular Dataset**
 
-   Place your dataset in the `TabularDatasets` directory and name it `RiceMSCDataset.csv`.
+   Tabular datasets in the appropriate format (e.g. csv) should be located in the `TabularDatasets` directory. You can assign the path of a tabular dataset that you want to use to the variable, as shown in the example below.
 
    ```matlab
    tabularFile = 'TabularDatasets\RiceMSCDataset.csv';
 
-2. **Create an Instance of the NuDIT**
+3. **Create an Instance of the NuDIT**
 
    Initialize the NuDIT object with your dataset file.
 
