@@ -50,9 +50,10 @@ Set Parameters
    ```matlab
    imageSize = 32;
    kfold = 5;
-   Prepare Data for Cross-Validation
 
 2. **Resize images and split the data into k folds for cross-validation.**
+
+   Prepare your image dataset for k-fold cross-validation
 
    ```matlab
    nudit.prepareData(imageSize, kfold);
