@@ -1,0 +1,1 @@
+As a result of transforming tabular data into images, a folder containing the image dataset (e.g., RiceMSCDataset) will be automatically created here.
