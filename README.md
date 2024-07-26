@@ -86,7 +86,7 @@ These default settings define the core parameters used during the training proce
 ![Network training](assets/trainNetwork.png)
 
 ### Results
-The results will be saved in the output directory specified in your script. Check this directory for the results and any log files.
+The results (image dataset) will be saved in the `Exports` directory specified in your script. Check this directory for the results and any log files.
 
 ### Troubleshooting
 If you encounter issues, verify the following:
