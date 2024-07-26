@@ -31,7 +31,11 @@ Follow these steps to run the project:
    nudit = NuDIT(tabularFile);
 
 ### Phase #2: Transform Numerical Data to Images
-Transform tabular data to images
+During the transformation phase of the tabular dataset, you will see a progress bar as shown below. The duration of this process is directly proportional to the number of records in the tabular dataset. Once the transformation process is complete, the next stage is automatically started.
+
+![Progress bar](assets/progressBar.png)
+
+**Important:** If you have done the transformation process once for a tabular dataset, comment this line of code in subsequent runs. Otherwise, the transformation will be done every time.
 
 1. **Transform numerical data into images suitable for deep learning models.**
 
@@ -56,11 +60,30 @@ Set Parameters
 ### Phase #4: Run DAG-Net
 Train the Network
 
+#### DAG-Net Training Options
+
+The default training options for DAG-Net are as follows:
+
+- **Optimizer:** Stochastic Gradient Descent with Momentum (SGDM)
+- **Mini-Batch Size:** 16
+- **Maximum Epochs:** `epochs` (variable)
+- **Execution Environment:** CPU
+
+Here is an example code snippet showing how the default settings are configured:
+
+   ```matlab
+   trainingOptions('sgdm', ...
+      'MiniBatchSize', 16, 'MaxEpochs', epochs, 'ExecutionEnvironment', 'cpu');
+   ```
+These default settings define the core parameters used during the training process of the model. If you wish to customize these training options, you can modify the `trainingOptions` function within the `runNetwork` method of the `NuDIT` class.
+
 1. **Execute the DAG-Net network with a specified number of epochs.**
 
    ```matlab
    epochs = 10;
    result = nudit.runNetwork(epochs);
+
+![Network training](assets/trainNetwork.png)
 
 ### Results
 The results will be saved in the output directory specified in your script. Check this directory for the results and any log files.
