@@ -16,7 +16,7 @@ tabularFile = 'TabularDatasets\RiceMSCDataset.csv';
 nudit = NuDIT(tabularFile);
 
 %% Phase #2: Transforming numerical data to images.
-% nudit.numToImgTransform();
+nudit.numToImgTransform();
 
 %% Phase #3: Apply k-fold cross-validation to dataset.
 imageSize = 32;
