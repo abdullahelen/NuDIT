@@ -171,16 +171,15 @@ classdef NuDIT < handle
         function result = runNetwork(obj, epochs)
             disp(' <strong># The training of the DAG-Net has started..</strong>');
             disp(' ');
-            % Training options for deep learning (Bu özellikleri değiştirebilirsin).
+            % Training options for deep learning.
             trainOpts = trainingOptions('sgdm', ...
-                'MiniBatchSize', 16, ... % Genelde bu değer 32, 64 ya da 128 oluyor.
-                'MaxEpochs', epochs, ... % Genelde bu değer 30-50 arasında oluyor.
-                'ExecutionEnvironment', 'cpu', ... % 'cpu' ya da 'gpu'
-                'Plots', 'training-progress', ... % 'none' ya da 'training-progress'
+                'MiniBatchSize', 16, ...
+                'MaxEpochs', epochs, ...
+                'ExecutionEnvironment', 'cpu', ... % 'cpu' or 'gpu'
+                'Plots', 'training-progress', ... % 'none' or 'training-progress'
                 'Verbose', true);
 
-            % "outputSize" derin öğrenme modellerinin çıkış sayısını, otomatikmen sınıf
-            % sayısı olarak belirler.
+            % Set the size of output.
             outputSize = size(obj.Labels, 1);
             inputSize = [obj.ImageSize, obj.ImageSize, 1];
 
@@ -190,7 +189,7 @@ classdef NuDIT < handle
             % Partition data for cross-validation.
             parts = obj.Partitions;
 
-            % Accuracy array.
+            % Accuracy array for each partition.
             accuracy = zeros(parts.NumTestSets, 1);
 
             dataSet = obj.getDataSet();
